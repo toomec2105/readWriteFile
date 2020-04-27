@@ -11,6 +11,7 @@ import java.io.FileWriter;
 public class ReadAndWrite {
 
 	public static void main(String[] args) {
+		// some comment
 
 		String path = "/home/darek/eclipse-workspace/Read&WriteFromFile/sourceFile";
 
