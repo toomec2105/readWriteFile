@@ -5,12 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class BufferedReaderReader implements ReadProcessor {
-
-	
+		
 	public  String read(String path) {
 		String textFromFile = ""; 
 		try {
-				BufferedReader reader = new BufferedReader(new FileReader("sourceFile"));
+				BufferedReader reader = new BufferedReader(new FileReader(path));
 				String line;
 
 				while( (line = reader.readLine() ) != null) {
@@ -25,6 +24,8 @@ public class BufferedReaderReader implements ReadProcessor {
 			}
 		return textFromFile;
 	}
+
+	
 
 	
 
