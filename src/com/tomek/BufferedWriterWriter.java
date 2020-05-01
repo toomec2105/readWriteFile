@@ -9,7 +9,7 @@ public class BufferedWriterWriter implements WriteProcessor  {
 	public void write(String path, String textFromFile) {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(path));
-			writer.write("This is written text. " + textFromFile);
+			writer.write(textFromFile);
 			writer.close();
 		} catch (IOException e) {
 			System.out.println("An error occurred when trying to write to a file.");
