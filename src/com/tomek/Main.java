@@ -76,7 +76,7 @@ public class Main {
 				return textFromFile;
 			}
 		};
-
+		
 		WriteProcessor anonymousClassImplementingWriteProcessor = new WriteProcessor() {
 
 			@Override
@@ -107,6 +107,7 @@ public class Main {
 		 * NIOFilesWriter()); readFromAndWriteToFile(targetFile, targetFile, new
 		 * ScannerReader(), new BufferedWriterWriter());
 		 */
+		readFromAndWriteToFile(path, targetFile, new NIOFilesReader(), new NIOFilesWriter());
 	}
 
 	// ------------generic readFromAndWriteToFile ----------------------
@@ -146,6 +147,13 @@ public class Main {
 
 	public static void readFromAndWriteToFile(String sourceFile, String targetFile, BufferedReaderReader reader,
 			BufferedWriterWriter writer) {
+		String text = reader.read(sourceFile);
+		text += " " + reader.getClass().getSimpleName() + " with " + writer.getClass().getSimpleName();
+		writer.write(targetFile, text);
+	}
+	
+	public static void readFromAndWriteToFile(String sourceFile, String targetFile, NIOFilesReader reader,
+			NIOFilesWriter writer) {
 		String text = reader.read(sourceFile);
 		text += " " + reader.getClass().getSimpleName() + " with " + writer.getClass().getSimpleName();
 		writer.write(targetFile, text);
